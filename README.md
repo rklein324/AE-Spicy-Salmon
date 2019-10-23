@@ -1,3 +1,3 @@
 # Project Spicy Salmon
 ## This project investigates salmon
-### See out project proposal
+### See our project proposal
