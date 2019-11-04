@@ -48,7 +48,7 @@ Autumn 2019
 ###### Rebecca Klein: Primary formatter
 > Goal: learn how to effectively present information using R and GitHub Wiki
 ###### Nitidh Lamsam (Pum): Primary researcher
-> Goal:
+> Goal: gain a better understanding of data science by using R and how to effectively work as a team.
 ##### **Communication**
 > Text group and skype call
 ##### **Feedback**
