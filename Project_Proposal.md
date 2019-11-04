@@ -33,11 +33,12 @@ Autumn 2019
 > The second data set we retrieved is the [Chinook salmon age, sex, and length data from major rivers in Southeast Alaska, from 1988-2017](https://knb.ecoinformatics.org/view/doi:10.5063/F11R6NSS). The data has 65,534 samples available (rows) and 16 columns of information.
 
 ###### Information Visualizations
-![a set of line graphs](line_graphs.png)
+<img src="line_graphs.png" alt="a set of line graphs" width="250" height="250" />
 
 > We believe that a line graph would be the best strategy to present our information since it clearly shows the exact values and trend of the data. We can calculate the change in the length of the salmon and the rate of change (gradient of the slope). We would use the line graph when we have a continuous category on the X axis, such as, time (year).
 
-![a set of scatter plots](scatter_plot.png)
+<img src="scatter_plot.png" alt="a set of scatter plots" width="250" height="250" />
+
 > A scatter plot is another great tool to display the relationship between two factors of the data. We can use a trend line to determine positive, negative, or no correlation. For example, the length of the salmon varies across the same age; therefore, the scatter plot can be used to represent all the values from the data and see the overall trend.
 ### Team work commitments
 ##### **Meeting Time**
