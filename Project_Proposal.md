@@ -16,11 +16,11 @@ Autumn 2019
 ### Problem situation
 > Salmon are decreasing in size and living shorter lives in the Pacific Northwest, most prevalently in Alaska. Their smaller size also means laying fewer eggs, decreasing the size of the whole population. The stakeholders are the Alaskan residents for whom salmon is a large part of their diet, the fishermen, who lose profits from the decrease in total pounds of fish they catch, and the entire world who’s ecosystem is being affected by the change. There has to be a balance between catching enough salmon to eat or make a living, and leaving enough salmon to stop the decrease of the population. There is also a tension between those who put more emphasis on the world and the salmon’s health and those who have more of a monetary interest in selling the fish.
 ###### What is the problem?
-> The primary problem this dataset addresses is the decreasing size of salmon (Chinook (also known as king), coho (silver), chum (dog), and sockeye (red)) in Alaska. The two main reasons that this may be happening is their inability to acquire food at sea or their return at younger ages from the sea. The decreasing size of salmon is impacting subsistence users, commercial fishermen, and ecosystem in a negative way.
+> The primary problem this dataset addresses is the decreasing size of salmon (Chinook (also known as king), coho (silver), chum (dog), and sockeye (red)) in Alaska. The decreasing size of salmon is impacting subsistence users, commercial fishermen, and ecosystem in a negative way. This reducing size means less food for people, less weight per salmon for commercial fishermen, and less nutrients in the ecosystem.The two main reasons for the reducing size of salmon may be that this may be their inability to acquire food at sea or their return at younger ages from the sea.
 ###### Why does it matter?
-> The decreasing size of salmon is primarily impacting Alaska’s people, economy, and ecosystems. The subsistence users are catching the same number of salmon, but smaller in size, and are thus facing a reduction of nutrients, protein, and calories, which significantly impact their daily health. The commercial fishermen are losing profit as fish with less meet cannot be processed into high value products. Additionally, key aspects of Alaska’s ecosystems that rely on salmon nutrients are facing issues. The animals that rely on a salmon diet are getting less food and nutrients, the smaller salmon are also bringing in lesser nutrients, and most significantly smaller salmon are laying fewer eggs – thus reducing the overall salmon population.
+> The decreasing size of salmon is primarily impacting Alaska’s people, economy, and ecosystems. The subsistence users are catching the same number of salmon, but smaller in size, and are thus facing a reduction of nutrients, protein, and calories, which significantly impact their daily health. The commercial fishermen are losing profit as fish with less meet cannot be processed into high value products. Additionally, key aspects of Alaska’s ecosystems that rely on salmon nutrients are facing issues. The animals that rely on a salmon diet are getting less food and nutrients and most significantly smaller salmon are laying fewer eggs – thus reducing the overall salmon population.
 ###### How will it be addressed?
-> Through the analysis of the salmon dataset, we plan to pinpoint the primary reasons for reducing the size of the salmon. Additionally, we want to present potential ways through which the reduction in size can be minimalized.
+> Through the analysis of the salmon datasets, we plan to pinpoint the primary reason for the reducing size of the salmon. We aim to show a correlation between reducing salmon size, reducing available food for salmon, and reducing maturity age for salmon. Additionally, we want to present potential ways through which the reduction in size can be minimalized.
 ###### Research Questions
 * Has there been a correlation between increase in fishing and decrease in salmon size?
 * Has there been a correlation between the amount of food available for salmon and decrease in size?
@@ -44,7 +44,7 @@ Autumn 2019
 > Fridays at 2:30pm in Mary Gates Hall Commons
 ##### **Roles**
 ###### Aarushi Bhatnagar: Primary writer
-> Goal:
+> Goal: My goal is to gain a better understanding of the tools in R and how they are used to analyze data
 ###### Rebecca Klein: Primary formatter
 > Goal: learn how to effectively present information using R and GitHub Wiki
 ###### Nitidh Lamsam (Pum): Primary researcher
