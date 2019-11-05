@@ -6,6 +6,7 @@
 Aarushi Bhatnagar  
 Rebecca Klein  
 Nitidh Lamsam
+Nahom Abi
 
 ###### Affiliation
 Info-201: Technical Foundations of Informatics  
