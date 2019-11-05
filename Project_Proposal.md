@@ -5,7 +5,7 @@
 #### Team Members:
 Aarushi Bhatnagar  
 Rebecca Klein  
-Nitidh Lamsam
+Nitidh Lamsam\
 Nahom Abi
 
 ###### Affiliation
