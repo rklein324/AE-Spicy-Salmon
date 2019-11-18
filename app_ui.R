@@ -5,7 +5,7 @@ library(shiny)
 #-----------------------------------
 about_page <- tabPanel(
   "About",
-  titlePanel("About Spicey Salmon"),
+  titlePanel("About Spicy Salmon"),
   
   sidebarLayout(
     # creates sidebar panel
