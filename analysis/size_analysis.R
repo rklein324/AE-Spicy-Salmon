@@ -1,6 +1,4 @@
-library(dplyr)
-
-source('size_age_analysis.R')
+source('analysis/size_age_analysis.R')
 
 # creates the data frame for the size chart
 create_size_df <- function(df, sep = 1, place = "All") {
@@ -21,8 +19,8 @@ create_size_df <- function(df, sep = 1, place = "All") {
   }
   
   # does the summarizing, gets rid of rows with NAs
-  df <- summarize(df, Length = mean(Length, na.rm = TRUE)) %>% 
-    drop_na()
+  df <- summarize(df, Length = mean(Length, na.rm = TRUE)) #%>% 
+    #drop_na()
   
   if(sep == 2) {
     df <- group_by(df, sampleYear, Sex)

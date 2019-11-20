@@ -5,9 +5,9 @@ account: rklein
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 1475820
-bundleId: 2602868
+bundleId: 2604756
 url: https://rklein.shinyapps.io/ae-spicy-salmon/
-when: 1574227428.50229
+when: 1574277602.58073
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: line_graphs.png|Project_Proposal.md|README.md|scatter_plot.png
