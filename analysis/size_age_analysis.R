@@ -1,3 +1,7 @@
+library(dplyr)
+library(stringr)
+
+# creates data frame from salmon age and size csv
 create_size_df <- function() {
   df <- read.csv("../data/salmon_age_size.csv",
                  header = TRUE,
@@ -6,6 +10,30 @@ create_size_df <- function() {
   return(df)
 }
 
+# mutates the data frame to add a date column, a simplified river column,
+# and an age column calculated using the formula given in the data set document
+mutate_size_df <- function(df) {
+  new_df <- mutate(df, date = as.Date(sapply(strsplit(df$sampleDate,' '),
+                                             '[',1),'%m/%d/%Y'),
+                   river = sapply(strsplit(df$Location,' '), '[',1),
+                   # age calculation is from discription of data set
+                   age = as.numeric(Fresh.Water.Age) + as.numeric(Salt.Water.Age) + 1
+                   )
+}
+
+# creates the data frame that will be used for further analysis
+create_edited_size_df <- function() {
+  df <- create_size_df() %>% 
+    mutate_size_df() %>% 
+    select(date, sampleYear, river, Sex, Length, age)
+}
+
+# -----------------------------------------------
+# SOLEY INFORMATIVE INFORMATION FOR OUR OWN ANALYSIS
+# -----------------------------------------------
+
+# returns a data frame of how many values for each (important) column
+# are missing per year
 summarize_missing_data <- function(df) {
   df <- mutate_size_df(df)
   date <- df[is.na(df$sampleDate),] %>% 
@@ -27,22 +55,8 @@ summarize_missing_data <- function(df) {
     left_join(sex, by = "sampleYear")
 }
 
+# returns a data frame with how many samples were taken for each year
 number_obs_per_year <- function(df) {
   group_by(df, sampleYear) %>% 
     summarize(num = n())
-}
-
-mutate_size_df <- function(df) {
-  new_df <- mutate(df, date = as.Date(sapply(strsplit(df$sampleDate,' '),
-                                             '[',1),'%m/%d/%Y'),
-                   river = sapply(strsplit(df$Location,' '), '[',1),
-                   # age calculation is from discription of data set
-                   age = as.numeric(Fresh.Water.Age) + as.numeric(Salt.Water.Age) + 1
-                   )
-}
-
-create_edited_size_df <- function() {
-  df <- create_size_df() %>% 
-    mutate_size_df() %>% 
-    select(date, sampleYear, river, Sex, Length, age)
 }
