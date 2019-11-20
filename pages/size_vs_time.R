@@ -20,15 +20,7 @@ size_vs_time_page <- tabPanel(
                                   "Stikine" = "Stikine",
                                   "Taku" = "Taku",
                                   "Unuk" = "Unuk"),
-                   selected = "All"),
-      
-      # can change the range of years to look at the data
-      sliderInput("year_range",
-                  label = h3("Years"),
-                  min = 1988, 
-                  max = 2018,
-                  value = c(1988, 2018),
-                  sep = "") # means that there won't be a comma in the year
+                   selected = "All")
       ),
     
     # creates main panel with description and chart
