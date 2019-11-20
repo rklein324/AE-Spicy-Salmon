@@ -1,4 +1,4 @@
-salmon_map <- tabPanel(
+age_vs_size_page <- tabPanel(
   "Salmon Population Map",
   titlePanel("Salmon Population Map"),
   
