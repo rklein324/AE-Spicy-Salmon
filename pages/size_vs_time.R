@@ -23,8 +23,13 @@ size_vs_time_page <- tabPanel(
     
     # creates main panel
     mainPanel(
-      h3("introduction to chart"),
-      h5("chart goes here")
+      p("salmon have been changing in size (aka length) over time;",
+        "this is shown in the data collected by the Alaska Department of Fish and Game"),
+      p("this chart shows that change, showing the change in males, females, and total;",
+        "the total will be larger than the sum of the male and female data as some data is missing"),
+      p("to see more specific information, you can select a specific river in alaska to view;",
+        "you can also specify that range of time you would like to view"),
+      h1("chart goes here")
     )
   )
 )
