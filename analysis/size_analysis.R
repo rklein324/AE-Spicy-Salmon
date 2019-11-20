@@ -18,10 +18,10 @@ create_size_df <- function(df, sep = 1, place = "All") {
     df <- group_by(df, sampleYear)
   }
   
-  # does the summarizing, gets rid of rows with NAs
-  df <- summarize(df, Length = mean(Length, na.rm = TRUE)) #%>% 
-    #drop_na()
+  # does the summarizing
+  df <- summarize(df, Length = mean(Length, na.rm = TRUE))
 
+  # groups by sex for plot, gets rid of NAs
   if(sep == 2) {
     df <- group_by(df, sampleYear, Sex) %>% 
       filter(!is.na(Sex))
