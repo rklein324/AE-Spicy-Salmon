@@ -12,8 +12,8 @@ source('pages/conclusion.R')
 ui <- navbarPage(
   "Spicy Salmon",
   home_page,
-  age_vs_time_page,
+  size_vs_time_page,
+  age_vs_size_page,
   harvesting_page,
-  salmon_map,
   conclusion_page
 )

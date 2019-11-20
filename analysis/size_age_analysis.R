@@ -36,6 +36,7 @@ mutate_size_df <- function(df) {
   new_df <- mutate(df, date = as.Date(sapply(strsplit(df$sampleDate,' '),
                                              '[',1),'%m/%d/%Y'),
                    river = sapply(strsplit(df$Location,' '), '[',1),
+                   # age calculation is from discription of data set
                    age = as.numeric(Fresh.Water.Age) + as.numeric(Salt.Water.Age) + 1
                    )
 }
