@@ -1,9 +1,9 @@
 library(shiny)
 
 source('pages/home.R')
-source('pages/age_vs_time.R')
+source('pages/size_vs_time.R')
 source('pages/harvesting.R')
-source('pages/salmon_map.R')
+source('pages/age_vs_size.R')
 source('pages/conclusion.R')
 
 #-----------------------------------
