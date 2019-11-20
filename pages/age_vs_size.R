@@ -1,6 +1,6 @@
 age_vs_size_page <- tabPanel(
-  "Salmon Population Map",
-  titlePanel("Salmon Population Map"),
+  "Age Vs Size",
+  titlePanel("Comparing the Age and Size of Salmon"),
   
   sidebarLayout(
     # creates sidebar panel

@@ -1,6 +1,6 @@
 size_vs_time_page <- tabPanel(
-  "Size/Age Over Time",
-  titlePanel("The Change in Salmon Size and Age Over Time"),
+  "Size Over Time",
+  titlePanel("The Change in Salmon Size Over Time"),
   
   sidebarLayout(
     # creates sidebar panel
