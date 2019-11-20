@@ -44,7 +44,7 @@ size_vs_time_page <- tabPanel(
         "a specific river in alaska to view;",
         "you can also specify that range of time you would like to view"),
       
-      h1("chart goes here")
+      plotlyOutput(outputId = "size_chart")
     )
   )
 )

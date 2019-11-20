@@ -2,8 +2,8 @@ library(dplyr)
 library(stringr)
 
 # creates data frame from salmon age and size csv
-create_size_df <- function() {
-  df <- read.csv("../data/salmon_age_size.csv",
+create_size_age_df <- function() {
+  df <- read.csv("data/salmon_age_size.csv",
                  header = TRUE,
                  stringsAsFactors = FALSE
   )
@@ -12,19 +12,20 @@ create_size_df <- function() {
 
 # mutates the data frame to add a date column, a simplified river column,
 # and an age column calculated using the formula given in the data set document
-mutate_size_df <- function(df) {
+mutate_size_age_df <- function(df) {
   new_df <- mutate(df, date = as.Date(sapply(strsplit(df$sampleDate,' '),
                                              '[',1),'%m/%d/%Y'),
                    river = sapply(strsplit(df$Location,' '), '[',1),
                    # age calculation is from discription of data set
-                   age = as.numeric(Fresh.Water.Age) + as.numeric(Salt.Water.Age) + 1
+                   age = suppressWarnings(as.numeric(Fresh.Water.Age) + 
+                                            as.numeric(Salt.Water.Age) + 1)
                    )
 }
 
 # creates the data frame that will be used for further analysis
-create_edited_size_df <- function() {
-  df <- create_size_df() %>% 
-    mutate_size_df() %>% 
+create_edited_size_age_df <- function() {
+  df <- create_size_age_df() %>% 
+    mutate_size_age_df() %>% 
     select(date, sampleYear, river, Sex, Length, age)
 }
 

@@ -3,7 +3,7 @@ library(dplyr)
 source('size_age_analysis.R')
 
 # creates the data frame for the size chart
-mutate_size_age_df <- function(df, sep = 1, place = "All") {
+create_size_df <- function(df, sep = 1, place = "All") {
   # filters for the river selected if applicable
   if(place != "All") {
     df <- filter(df, df$river == place)
@@ -23,4 +23,10 @@ mutate_size_age_df <- function(df, sep = 1, place = "All") {
   # does the summarizing, gets rid of rows with NAs
   df <- summarize(df, Length = mean(Length, na.rm = TRUE)) %>% 
     drop_na()
+  
+  if(sep == 2) {
+    df <- group_by(df, sampleYear, Sex)
+  }
+  
+  return(df)
 }
