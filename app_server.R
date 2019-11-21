@@ -52,9 +52,15 @@ server <- function(input, output) {
       df <- df %>% filter(Sex == "male")
     }
     
-    if (input$river != "All") {
-      df <- df %>% filter(river == input$river)
-    }
+    if (input$river == "Stikine") {
+      df <- df %>% filter(river == "Stikine")
+    } else if(input$river == "Chilkat") {
+      df <- df %>% filter(river == "Chilkat")
+    } else if(input$river == "Taku") { 
+      df <- df %>% filter(river == "Taku")
+    } else if(input$river == "Unuk") {
+      df <- df %>% filter(river == "Unuk")
+    } 
     
     df2 <- df %>% group_by(age) %>% 
       summarise(aveSize = mean(Length))
