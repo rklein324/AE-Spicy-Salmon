@@ -8,7 +8,7 @@ harvesting_page <- tabPanel(
       selectInput("harvest_y_axis", "Y-axis variable",
                   choices = list("Number of Fish" = "NumberOfFish",
                                  "Pounds" = "Pounds",
-                                 "Estimated Exvessel" = "EstimatedExvesselValue"),
+                                 "Revenue" = "EstimatedExvesselValue"),
                   selected = "NumberOfFish"),
       selectInput("harvest_species", "Species",
                      multiple = TRUE, selectize = TRUE,
@@ -21,7 +21,13 @@ harvesting_page <- tabPanel(
     
     # creates main panel
     mainPanel(
-      p("The data in the above table is sourced from Alaska Department of Fish and Game (ADF&G)
+      p("On this page, you can manipulate the variables to see:"),
+      tags$ul(
+        tags$li("How much salmon was harvested (in pounds)"),
+        tags$li("The number of salmon fish harvested"),
+        tags$li("The estimated revenue from sales in USD")
+      ),
+      p("The data in the chart below is sourced from Alaska Department of Fish and Game (ADF&G)
         fish tickets and Commercial Fisheries Entry Commission (CFEC) estimates of gross earnings."),
       p("These data contain all species of salmon combined
         (Chinook, sockeye, coho, chum, and pink salmon)."),
