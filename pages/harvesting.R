@@ -1,3 +1,5 @@
+library(plotly)
+
 harvesting_page <- tabPanel(
   "Harvesting",
   titlePanel("Harvesting"),
