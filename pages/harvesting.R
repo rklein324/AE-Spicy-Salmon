@@ -5,12 +5,28 @@ harvesting_page <- tabPanel(
   sidebarLayout(
     # creates sidebar panel
     sidebarPanel(
-      h3("stuff")
+      selectInput("harvest_y_axis", "Y-axis variable",
+                  choices = list("Number of Fish" = "NumberOfFish",
+                                 "Pounds" = "Pounds",
+                                 "Estimated Exvessel" = "EstimatedExvesselValue"),
+                  selected = "NumberOfFish"),
+      selectInput("harvest_species", "Species",
+                     multiple = TRUE, selectize = TRUE,
+                  choices = c("Chinook", "Chum", "Coho", "Pink", "Sockeye"),
+                  selected = c("Chinook", "Chum", "Coho", "Pink", "Sockeye")),
+      sliderInput("harvest_year", "Harvest Year", min = 1975, max = 2018,
+                  value = c(1975, 2018), sep = "")
+      
     ),
     
     # creates main panel
     mainPanel(
-      h3("stuff")
+      p("The data in the above table is sourced from Alaska Department of Fish and Game (ADF&G)
+        fish tickets and Commercial Fisheries Entry Commission (CFEC) estimates of gross earnings."),
+      p("These data contain all species of salmon combined
+        (Chinook, sockeye, coho, chum, and pink salmon)."),
+      
+      plotlyOutput("harvest_plot")
     )
   )
 )
