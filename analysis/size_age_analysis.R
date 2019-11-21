@@ -1,5 +1,6 @@
 library(dplyr)
 library(stringr)
+library(shiny)
 
 # creates data frame from salmon age and size csv
 create_size_age_df <- function() {
@@ -28,6 +29,8 @@ create_edited_size_age_df <- function() {
     mutate_size_age_df() %>% 
     select(date, sampleYear, river, Sex, Length, age)
 }
+
+my_df <- create_size_age_df()
 
 # -----------------------------------------------
 # SOLEY INFORMATIVE INFORMATION FOR OUR OWN ANALYSIS

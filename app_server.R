@@ -1,9 +1,11 @@
 library(shiny)
 library(plotly)
 library(ggplot2)
+library(tidyr)
 
 source("analysis/size_analysis.R")
 source("analysis/harvest_analysis.R")
+source("analysis/size_age_analysis.R")
 
 server <- function(input, output) {
   
@@ -36,5 +38,34 @@ server <- function(input, output) {
         title = input$harvest_y_axis
       ))
   })
+
+  output$age_vs_size <- renderPlot({
+    df <- create_size_age_df()
+    df <- mutate_size_age_df(df)
+    df <- df %>% select(Length, age, Sex, river)
+    df <- drop_na(df)
+    # df <- df %>% filter(Sex == "female", age == 2)
+    
+    if(input$selectSex == 1) {
+      df <- df %>% filter(Sex == "female")
+    } else if(input$selectSex == 0) {
+      df <- df %>% filter(Sex == "male")
+    }
+    
+    if (input$river != "All") {
+      df <- df %>% filter(river == input$river)
+    }
+    
+    df2 <- df %>% group_by(age) %>% 
+      summarise(aveSize = mean(Length))
+    
+    ggplot(df2, aes(x=age, y=aveSize)) +
+      geom_line() +
+      geom_point()
+    
+    
+  })
+  
+  
   
 }
