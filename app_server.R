@@ -24,7 +24,7 @@ server <- function(input, output) {
   
   
   output$harvest_plot <- renderPlotly({
-    df <- get_harvest_df(start_year = input$harvest_year[1],
+    df <- get_harvest_data(start_year = input$harvest_year[1],
                          end_year = input$harvest_year[2],
                          species = input$harvest_species)
 
