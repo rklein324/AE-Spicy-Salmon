@@ -2,14 +2,10 @@ about_page <- tabPanel(
   "About",
   titlePanel("About Us"),
   
-  sidebarLayout(
-    # creates sidebar panel
-    sidebarPanel(
-      
-    ),
-    
-    # creates main panel
-    mainPanel(
-    )
+  flowLayout(
+      p("Aarushi Bhatnagar"),
+      p("Nahom Abi"),
+      p("Nitidh Lamsam"),
+      p("Rebecca Klein")
   )
 )
