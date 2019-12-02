@@ -7,21 +7,18 @@ source("analysis/size_analysis.R")
 source("analysis/harvest_analysis.R")
 source("analysis/size_age_analysis.R")
 
+size_df <- create_full_df(create_edited_size_age_df())
+
 server <- function(input, output) {
   
-  output$size_chart <- renderPlot({
-    df <- create_size_df(create_edited_size_age_df(), sep = input$sex, place = input$river)
-    if(input$sex == 2) {
-      ggplot(data = df, aes(x = sampleYear, y = Length, color = Sex)) +
-        geom_line() +
-        geom_point()
-    } else {
-      ggplot(data = df, aes(x = sampleYear, y = Length)) +
-        geom_line() +
-        geom_point()
-    }
+  output$size_chart <- renderPlotly({
+    df <- create_size_df(size_df, sex = input$sex, rivers = input$river) %>%
+      plot_ly(x = ~sampleYear,
+              y = ~Length,
+              color = ~river,
+              type = "scatter",
+              mode = "lines+markers")
   })
-  
   
   output$harvest_plot <- renderPlotly({
     df <- get_harvest_data(start_year = input$harvest_year[1],
@@ -69,9 +66,6 @@ server <- function(input, output) {
       geom_line() +
       geom_point()
     
-    
   })
-  
-  
   
 }
