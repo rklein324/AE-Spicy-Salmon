@@ -11,6 +11,7 @@ size_df <- create_full_df(create_edited_size_age_df())
 
 server <- function(input, output) {
   
+  # outputs size plot
   output$size_chart <- renderPlotly({
     df <- create_size_df(size_df, sex = input$sex, rivers = input$river) %>%
       plot_ly(x = ~sampleYear,
@@ -20,6 +21,7 @@ server <- function(input, output) {
               mode = "lines+markers")
   })
   
+  # outputs harvest plot
   output$harvest_plot <- renderPlotly({
     df <- get_harvest_data(start_year = input$harvest_year[1],
                          end_year = input$harvest_year[2],
@@ -36,6 +38,7 @@ server <- function(input, output) {
       ))
   })
 
+  # outputs age plot
   output$age_vs_size <- renderPlot({
     df <- create_size_age_df()
     df <- mutate_size_age_df(df)
