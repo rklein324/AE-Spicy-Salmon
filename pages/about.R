@@ -6,6 +6,9 @@ about_page <- tabPanel(
       p("Aarushi Bhatnagar"),
       p("Nahom Abi"),
       p("Nitidh Lamsam"),
-      p("Rebecca Klein")
+      p(h3("Rebecca Klein"), "Rebecca is a junior at the University of
+        Washington and an Informatics major. She transfered to UW this year
+        from North Seattle College. Rebecca aspires to be a data scientist
+        in a research organization")
   )
 )
