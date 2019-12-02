@@ -10,17 +10,26 @@ age_vs_size_page <- tabPanel(
                    choices = list("Male" = 0, "Female" = 1, "All" = 2),
                    selected = 2
                    ),
+     
       
-      radioButtons("river",
-                   label = h3("Select river"),
-                   choices = list("All" = "All",
-                                  "Chilkat" = "Chilkat",
-                                  "Stikine" = "Stikine",
-                                  "Taku" = "Taku",
-                                  "Unuk" = "Unuk"),
-                   selected = "All"
-    ))
-    ,
+      checkboxInput(Chilkat, Chilkat, value = FALSE, width = NULL),
+      checkboxInput(Stikine, Stikine, value = FALSE, width = NULL),
+      checkboxInput(Taku, Taku, value = FALSE, width = NULL),
+      checkboxInput(Unuk, Unuk, value = FALSE, width = NULL),
+      
+      
+      
+      #("river",
+                  # # label = h3("Select river"),
+                  #  choices = list("All" = "All",
+                  #                 "Chilkat" = "Chilkat",
+                  #                 "Stikine" = "Stikine",                    # CHANGE TO CHECK BOXES
+                  #                 "Taku" = "Taku",
+                  #                 "Unuk" = "Unuk"),
+                  #  selected = "All"
+   
+    # ))
+    # ,
     
     # creates main panel
     mainPanel(
