@@ -39,7 +39,7 @@ server <- function(input, output) {
   })
 
   # outputs age plot
-  output$age_vs_size <- renderPlot({
+  output$age_vs_size <- renderPlotly({
     pums_df <- create_size_age_df()
     pums_df <- mutate_size_age_df(pums_df)
     pums_df <- pums_df %>% select(Length, age, Sex, river)
@@ -51,43 +51,47 @@ server <- function(input, output) {
     } else if(input$selectSex == 0) {
       pums_df <- pums_df %>% filter(Sex == "male")
     }
+    
 
-    # if (input$river == "Stikine") {
-    #   df <- df %>% filter(river == "Stikine")
-    # } else if(input$river == "Chilkat") {
-    #   df <- df %>% filter(river == "Chilkat")
-    # } else if(input$river == "Taku") {
-    #   df <- df %>% filter(river == "Taku")
-    # } else if(input$river == "Unuk") {
-    #   df <- df %>% filter(river == "Unuk")
+    # Filter from check box
+    selectedRiver <- input$selectRiver
+    pums_df <- pums_df %>% filter(river %in% selectedRiver)
+    
+    # if (input$river[2] == FALSE) {
+    #   
     # }
-    if (input$Stikine == FALSE) {
-      df <- filter(df, river != "Stikine")
-    }
-    else if (input$Chilkat == FALSE) {
-      df <- filter(df, river != "Chilkat")
-    }
-    else if (input$Taku == FALSE) {
-      df <- filter(df, river != "Taku")
-    }
-    else if (input$Unuk == FALSE) {
-      df <- filter(df, river != "Unuk")
-    }  
-      
+    # else if (input$river[1] == FALSE) {
+    #   pums_df <- filter(pums_df, river != "Chilkat")
+    # }
+    # else if (input$river[3] == FALSE) {
+    #   pums_df <- filter(pums_df, river != "Taku")
+    # }
+    # else if (input$river[4] == FALSE) {
+    #   pums_df <- filter(pums_df, river != "Unuk")
+    # }
+    
+    
     pums_dff <- pums_df %>% group_by(age) %>% 
       summarise(aveSize = mean(Length))
     
-    ggplot(pums_dff, aes(x=age, y=aveSize)) +
-     geom_line() +
-     geom_point()
+    # ggplot(pums_dff, aes(x=age, y=aveSize)) +
+    #  geom_line() +
+    #  geom_point()
+    
+  
 
-    # dff %>%
-    #   plot_ly(x = ~age,
-    #           y = ~aveSize,
-    #           type = 'scatter',
-    #           mode = 'lines+markers') %>%
-    #   layout(yaxis = list(title = "Average size"))
-
+     pums_dff %>%
+       plot_ly(x = ~age,
+               y = ~aveSize,
+               type = 'scatter',
+               mode = 'lines+markers') %>%
+       layout(yaxis = list(title = "Average size"))
+     
+     
   })
+    
+    
+
+  
   
 }

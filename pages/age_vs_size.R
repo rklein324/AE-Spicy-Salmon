@@ -12,10 +12,15 @@ age_vs_size_page <- tabPanel(
                    ),
      
       
-      checkboxInput(Chilkat, Chilkat, value = FALSE, width = NULL),
-      checkboxInput(Stikine, Stikine, value = FALSE, width = NULL),
-      checkboxInput(Taku, Taku, value = FALSE, width = NULL),
-      checkboxInput(Unuk, Unuk, value = FALSE, width = NULL),
+      checkboxGroupInput("selectRiver",
+                         label = h3("Select river"),
+                         choices = list("Chilkat" = "Chilkat",
+                                        "Stikine" = "Stikine",
+                                        "Taku" = "Taku",
+                                        "Unuk" = "Unuk"),
+                         selected = c("Chilkat", "Stikine", "Taku", "Unuk"))
+    ),
+    
       
       
       
@@ -47,7 +52,7 @@ age_vs_size_page <- tabPanel(
         "age, sex, and length data from major rivers in Southeast Alaska, 1988-2017."), 
 
      
-      plotOutput(outputId = "age_vs_size")
+      plotlyOutput(outputId = "age_vs_size")
     )
   )
 )

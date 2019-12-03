@@ -19,8 +19,7 @@ size_vs_time_page <- tabPanel(
       # none selected means you look at the whole data set
       checkboxGroupInput("river",
                    label = h3("Select river"),
-                   choices = list("All" = "All",
-                                  "Chilkat" = "Chilkat",
+                   choices = list("Chilkat" = "Chilkat",
                                   "Stikine" = "Stikine",
                                   "Taku" = "Taku",
                                   "Unuk" = "Unuk"),
