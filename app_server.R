@@ -1,6 +1,5 @@
 library(shiny)
 library(plotly)
-library(ggplot2)
 library(tidyr)
 
 source("analysis/size_analysis.R")

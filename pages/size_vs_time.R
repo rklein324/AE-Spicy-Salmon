@@ -7,7 +7,7 @@ size_vs_time_page <- tabPanel(
   sidebarLayout(
     # creates sidebar panel
     sidebarPanel(
-      # can select whether to separate by sex or not
+      # can choose to view the average for males, females, or total average
       radioButtons("sex",
                    label = h3("Sex"),
                    choices = list("Total" = "total",
@@ -15,8 +15,7 @@ size_vs_time_page <- tabPanel(
                                   "Female" = "female"),
                    selected = "total"),
       
-      # can select a river (or rivers) to look at data about
-      # none selected means you look at the whole data set
+      # can select the average of a single river or total average
       checkboxGroupInput("river",
                    label = h3("Select river"),
                    choices = list("Chilkat" = "Chilkat",
