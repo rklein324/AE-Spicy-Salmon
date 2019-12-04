@@ -38,7 +38,6 @@ size_vs_time_page <- tabPanel(
 
       # dispays plot
       plotlyOutput(outputId = "size_plot"),
-      p(),
 
       # analysis of plot
       p("This data was collected by the Alaska Department of Fish and Game.
