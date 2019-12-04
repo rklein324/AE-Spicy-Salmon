@@ -12,10 +12,10 @@ harvesting_page <- tabPanel(
                                  "Pounds" = "Pounds",
                                  "Revenue" = "EstimatedExvesselValue"),
                   selected = "NumberOfFish"),
-      selectInput("harvest_species", "Species",
-                     multiple = TRUE, selectize = TRUE,
-                  choices = c("Chinook", "Chum", "Coho", "Pink", "Sockeye"),
-                  selected = c("Chinook", "Chum", "Coho", "Pink", "Sockeye")),
+      checkboxGroupInput("harvest_species", "Species",
+                         choiceNames = c("Chinook", "Chum", "Coho", "Pink", "Sockeye"),
+                         choiceValues = c("Chinook", "Chum", "Coho", "Pink", "Sockeye"),
+                         selected = c("Chinook", "Chum", "Coho", "Pink", "Sockeye")),
       sliderInput("harvest_year", "Harvest Year", min = 1975, max = 2018,
                   value = c(1975, 2018), sep = "")
 
