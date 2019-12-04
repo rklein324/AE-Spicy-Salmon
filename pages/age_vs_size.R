@@ -35,8 +35,9 @@ age_vs_size_page <- tabPanel(
 
     # creates main panel
     mainPanel(
-      p("This page shows the age versus  size of the salmon.",
+      p("This page shows the age versus size of the salmon.",
         "In the sidebar window, the user can filter the sex of the salmon",
+<<<<<<< HEAD
         "and at the same time select the river."),
 
       p("The chart shows the change in salmon size as their age develop.",
@@ -51,6 +52,34 @@ age_vs_size_page <- tabPanel(
 
 
       plotlyOutput(outputId = "age_vs_size")
+=======
+        "and at the same time select the river. By default, the widget selects 
+        'All'for the gender (with radio buttons) and selects all four rivers
+        (using checkboxes)."), 
+      
+      p("This information is obtained from Metadata: Chinook salmon",
+        "age, sex, and length data from major rivers in Southeast Alaska, 1988-2017."), 
+
+     
+      plotlyOutput(outputId = "age_vs_size"),
+      
+      p("The chart shows the salmon's change in size as their age develop.",
+        "As the age increases, the average size also increases.",
+        "The age is measured in years and the size is measured in millimeters.",
+        "We had to calculate the average size for each age because age is", 
+        "numerically discrete, so we cannot have a scatter plot. The average size", 
+        "allows us to obtain one result for each age inorder to format a line graph."),
+        
+      
+        "Chilkat is the only river that has higher average size of salmon",
+        "at the age 2 compared to 3 (for both male and female).",
+        "We can clearly see that there is something wrong for the female at",
+        "the age of 2. There's an anomaly because there's only one fish in the",
+        "data for that age whose length is 835mm. Apart from that, the graph",
+        "looks like what we expected. Overall, the average size in male and female",
+        "are very similar for all ages apart from the anomaly (age = 2 in the",
+        "Chilkat river)."),
+>>>>>>> 5df22b8122cb9f18907d8b66e097f5a693bd9918
     )
   )
-)
+
