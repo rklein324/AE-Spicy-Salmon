@@ -8,9 +8,7 @@ source('pages/age_vs_size.R')
 source('pages/conclusion.R')
 source('pages/about.R')
 
-#-----------------------------------
-# Creates layout and puts together pages
-#-----------------------------------
+# creates layout and puts together pages
 ui <- dashboardPage(
   dashboardHeader(title = "Shrinking Salmon"),
   dashboardSidebar(

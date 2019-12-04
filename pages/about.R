@@ -2,7 +2,7 @@ about_page <- tabPanel(
   "About",
   titlePanel("About Us"),
   
-  flowLayout(
+  verticalLayout(
       p(h3("Aarushi Bhatnagar")),
       p(h3("Nahom Abi"), "Nahom is a junior at the University of Washington
         pursuing a degree in Informatics. He plans to start a company after
