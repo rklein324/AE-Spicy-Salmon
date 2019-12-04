@@ -17,8 +17,9 @@ size_vs_time_page <- tabPanel(
       
       # can select the average of a single river or total average
       checkboxGroupInput("river",
-                   label = h3("Select river"),
-                   choices = list("Chilkat" = "Chilkat",
+                   label = h3("River(s)"),
+                   choices = list("All" = "All",
+                                  "Chilkat" = "Chilkat",
                                   "Stikine" = "Stikine",
                                   "Taku" = "Taku",
                                   "Unuk" = "Unuk"),
@@ -27,18 +28,24 @@ size_vs_time_page <- tabPanel(
     
     # creates main panel with description and plot
     mainPanel(
-      p("salmon have been changing in size (length in millimeters) over time;",
-        "this is shown in the data collected by",
-        "the Alaska Department of Fish and Game"),
-      p("this chart shows that change"),
-      p("you can decide to separate the data into males and females or not,",
-        "but separating it will result in less acurate data,",
-        "as not all observations recorded the sex"),
-      p("to see more specific information, you can select",
-        "a specific river in alaska to view;",
-        "you can also specify that range of time you would like to view"),
       
-      plotlyOutput(outputId = "size_plot")
+      # introduction to plot
+      p("The graph below shows how salmon have been changing in size (length
+        in millimeters) over theyears. The data is averaged for each of the
+        possible combinations of sex and river you select."),
+      p("For sex, 'Total' (ignoring sex) includes data not included otherwise
+        as some datapoint were missing this information."),
+      p("For river(s), 'All' will show how the size has changed ignoring where
+        the data was colected."),
+      
+      # dispays plot
+      plotlyOutput(outputId = "size_plot"),
+      p(),
+      
+      # analysis of plot
+      p("This data was collected by the Alaska Department of Fish and Game.
+        It clearly shows that salmon have been decreasing in size, no matter
+        the sex or location (in Alaska) of the salmon.")
     )
   )
 )
