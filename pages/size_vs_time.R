@@ -18,8 +18,7 @@ size_vs_time_page <- tabPanel(
       # can select the average of a single river or total average
       checkboxGroupInput("river",
                    label = h3("Select river"),
-                   choices = list("All" = "All",
-                                  "Chilkat" = "Chilkat",
+                   choices = list("Chilkat" = "Chilkat",
                                   "Stikine" = "Stikine",
                                   "Taku" = "Taku",
                                   "Unuk" = "Unuk"),
