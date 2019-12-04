@@ -31,12 +31,10 @@ size_vs_time_page <- tabPanel(
       
       # introduction to plot
       p("The graph below shows how salmon have been changing in size (length
-        in millimeters) over theyears. The data is averaged for each of the
+        in millimeters) over the years. The data is averaged for each of the
         possible combinations of sex and river you select."),
       p("For sex, 'Total' (ignoring sex) includes data not included otherwise
-        as some datapoint were missing this information."),
-      p("For river(s), 'All' will show how the size has changed ignoring where
-        the data was colected."),
+        as some datapoints were missing this information."),
       
       # dispays plot
       plotlyOutput(outputId = "size_plot"),
@@ -44,8 +42,10 @@ size_vs_time_page <- tabPanel(
       
       # analysis of plot
       p("This data was collected by the Alaska Department of Fish and Game.
-        It clearly shows that salmon have been decreasing in size, no matter
-        the sex or location (in Alaska) of the salmon.")
+        There is some missing data, but it is not a significant number as
+        compared to the overall number of samples. It is also important to note
+        that there are some years where data was only collected from one or two
+        rivers which accounts for some of the inconsistency in the data.")
     )
   )
 )

@@ -6,7 +6,7 @@ source("analysis/size_analysis.R")
 source("analysis/harvest_analysis.R")
 source("analysis/size_age_analysis.R")
 
-# creates dataframe for size plot
+# creates data frame for size plot
 size_df <- create_full_df(create_edited_size_age_df())
 
 server <- function(input, output) {
