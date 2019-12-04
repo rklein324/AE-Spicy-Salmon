@@ -10,10 +10,11 @@ source("analysis/size_age_analysis.R")
 size_df <- create_full_df(create_edited_size_age_df())
 
 server <- function(input, output) {
-  
+
   # outputs size plot
   output$size_plot <- renderPlotly({
-    df <- create_size_df(ungroup(size_df), sex = input$sex, rivers = input$river) %>%
+    df <- create_size_df(ungroup(size_df), sex = input$sex,
+                         rivers = input$river) %>%
       plot_ly(x = ~sampleYear,
               y = ~Length,
               color = ~river,
@@ -22,7 +23,7 @@ server <- function(input, output) {
       layout(yaxis = list(title = "Length (millimeters)"),
              xaxis = list(title = "Year"))
   })
-  
+
   # outputs harvest plot
   output$harvest_plot <- renderPlotly({
     df <- get_harvest_data(start_year = input$harvest_year[1],
@@ -33,8 +34,8 @@ server <- function(input, output) {
       plot_ly(x = ~Year,
               y = ~get(input$harvest_y_axis),
               color = ~SpeciesCommon,
-              type = 'scatter',
-              mode = 'lines+markers') %>%
+              type = "scatter",
+              mode = "lines+markers") %>%
       layout(yaxis = list(
         title = input$harvest_y_axis
       ))
@@ -47,20 +48,20 @@ server <- function(input, output) {
     pums_df <- pums_df %>% select(Length, age, Sex, river)
     pums_df <- drop_na(pums_df)
     # df <- df %>% filter(Sex == "female", age == 2)
-    
-    if(input$selectSex == 1) {
+
+    if (input$selectSex == 1) {
       pums_df <- pums_df %>% filter(Sex == "female")
-    } else if(input$selectSex == 0) {
+    } else if (input$selectSex == 0) {
       pums_df <- pums_df %>% filter(Sex == "male")
     }
-    
+
 
     # Filter from check box
     selectedRiver <- input$selectRiver
     pums_df <- pums_df %>% filter(river %in% selectedRiver)
-    
+
     # if (input$river[2] == FALSE) {
-    #   
+    #
     # }
     # else if (input$river[1] == FALSE) {
     #   pums_df <- filter(pums_df, river != "Chilkat")
@@ -71,29 +72,21 @@ server <- function(input, output) {
     # else if (input$river[4] == FALSE) {
     #   pums_df <- filter(pums_df, river != "Unuk")
     # }
-    
-    
-    pums_dff <- pums_df %>% group_by(age) %>% 
+
+
+    pums_dff <- pums_df %>%
+      group_by(age) %>%
       summarise(aveSize = mean(Length))
-    
+
     # ggplot(pums_dff, aes(x=age, y=aveSize)) +
     #  geom_line() +
     #  geom_point()
-    
-  
 
      pums_dff %>%
        plot_ly(x = ~age,
                y = ~aveSize,
-               type = 'scatter',
-               mode = 'lines+markers') %>%
+               type = "scatter",
+               mode = "lines+markers") %>%
        layout(yaxis = list(title = "Average size"))
-     
-     
   })
-    
-    
-
-  
-  
 }

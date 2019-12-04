@@ -1,18 +1,15 @@
-#-----------------------------------
-# Creates query page
-#-----------------------------------
 home_page <- tabPanel(
   "Home",
   titlePanel("Home"),
-  
+
   sidebarLayout(
     # creates sidebar panel
     sidebarPanel(
-      p("Click ", a("here", href = 
+      p("Click ", a("here", href =
         "https://github.com/rklein324/AE-Spicy-Salmon/wiki/Technical-Report"),
         " to read the techincal report")
     ),
-    
+
     # creates main panel
     mainPanel(
       p("Welcome to the world of Spicy Salmon! In this app, you will find",

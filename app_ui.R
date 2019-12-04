@@ -1,12 +1,12 @@
 library(shiny)
 library(shinydashboard)
 
-source('pages/home.R')
-source('pages/size_vs_time.R')
-source('pages/harvesting.R')
-source('pages/age_vs_size.R')
-source('pages/conclusion.R')
-source('pages/about.R')
+source("pages/home.R")
+source("pages/size_vs_time.R")
+source("pages/harvesting.R")
+source("pages/age_vs_size.R")
+source("pages/conclusion.R")
+source("pages/about.R")
 
 # creates layout and puts together pages
 ui <- dashboardPage(
@@ -17,7 +17,8 @@ ui <- dashboardPage(
       menuItem("Size vs. Time", tabName = "size_vs_time", icon = icon("clock")),
       menuItem("Size vs. Age", tabName = "age_vs_size", icon = icon("stream")),
       menuItem("Harvesting", tabName = "harvesting", icon = icon("fish")),
-      menuItem("Conclusion", tabName = "conclusion", icon = icon("hourglass-end")),
+      menuItem("Conclusion", tabName = "conclusion",
+               icon = icon("hourglass-end")),
       menuItem("About", tabName = "about", icon = icon("address-card"))
     )
   ),

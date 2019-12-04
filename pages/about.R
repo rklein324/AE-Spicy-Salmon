@@ -1,7 +1,7 @@
 about_page <- tabPanel(
   "About",
   titlePanel("About Us"),
-  
+
   verticalLayout(
       p(h3("Aarushi Bhatnagar")),
       p(h3("Nahom Abi"), "Nahom is a junior at the University of Washington

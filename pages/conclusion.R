@@ -4,19 +4,22 @@
 conclusion_page <- tabPanel(
   "Conclusion",
   titlePanel("Conclusion"),
-  
+
   sidebarLayout(
     # creates sidebar panel
     sidebarPanel(
       h3("Data"),
-      p(a("Size and Age Data", href="https://knb.ecoinformatics.org/view/doi:10.5063/F11R6NSS")),
-      p(a("Harvest Data", href="https://www.adfg.alaska.gov/index.cfm?adfg=commercialbyfisherysalmon.salmon_combined_historical"))
+      p(a("Size and Age Data",
+        href = "https://knb.ecoinformatics.org/view/doi:10.5063/F11R6NSS")),
+      p(a("Harvest Data",
+        href = "https://www.adfg.alaska.gov/index.cfm?
+        adfg=commercialbyfisherysalmon.salmon_combined_historical"))
     ),
-    
+
     # creates main panel
     mainPanel(
-      p("One of the main strengths of our project is that our data clearly 
-      shows a change over time. This concretely shows that salmon size is 
+      p("One of the main strengths of our project is that our data clearly
+      shows a change over time. This concretely shows that salmon size is
       reducing, and thus we can further correlate age and harvesting to the
       size. Another strength of our project is the visualizations that help
       the viewers better understand and comprehend the change (we will be
