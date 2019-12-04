@@ -18,22 +18,13 @@ conclusion_page <- tabPanel(
 
     # creates main panel
     mainPanel(
-      p("One of the main strengths of our project is that our data clearly
-      shows a change over time. This concretely shows that salmon size is
-      reducing, and thus we can further correlate age and harvesting to the
-      size. Another strength of our project is the visualizations that help
-      the viewers better understand and comprehend the change (we will be
-      refining this before the final deliverable)."),
-      p("One of the main lessons we learned is the importance of a correct
-      data set that showed a change over time. If a data set did not have a
-      large range of time, it became less reliable in terms of showing concrete
-      changes. We also learned the strengths and weaknesses of the different
-      visualization methods. In the future, we would like to pursue research on
-      the reduction of salmon food in the water bodies where salmon are most
-      commonly found."),
-      p("Note: In the final deliverable, this page will contain more analysis
-      but since we are still in the process of analyzing our data - this
-      describes the project strengths, lessons, and future plans.")
+      p("Through this analysis, it is evident that over time salmon size in the Pacific Northwest has decreased (please see size vs time page for an interactive graph and a detailed analysis).  Smaller size of Salmon means fewer eggs, thus decreasing the size of the whole salmon population in the Pacific Northwest. The main stakeholders are the Pacific Northwest residents for whom salmon is a large part of their diet, the fishermen, who lose profits from the decrease in total pounds of fish they catch, and the entire world who's ecosystem is being affected by the change. There has to be a balance between catching enough salmon to eat or make a living, and leaving enough salmon to stop the decrease of the population. There is also a tension between those who put more emphasis on the world and the salmon's health and those who have more of a monetary interest in selling the fish. 
+
+In search for the reason for the reduction in size, the researching team also analyzed the correlation between size & age and size and number of salmon being harvested. Through the data, researchers drew the conclusion that as age increases, size increases for salmon. However, due to monetary benefits salmon are being harvested more frequently and at younger ages - thus not allowing the salmon to mature fully and reach their proper size. By analyzing harvesting data, researchers noted that for some types of the salmon such as the Chinook and the Coho harvesting does not impact size. For other types of salmon such as the sock eye and pink an increase in harvesting can be correlated to a reduction in salmon size. 
+
+The researchers suggest laws for harvesting of some salmon - this would allow the salmon to grow their full size and not monetarily impact people (as they would be able to harvest other types of salmon). 
+"),
+
     )
   )
 )

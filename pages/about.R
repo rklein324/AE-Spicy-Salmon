@@ -3,7 +3,11 @@ about_page <- tabPanel(
   titlePanel("About Us"),
 
   verticalLayout(
-      p(h3("Aarushi Bhatnagar")),
+      p(h3("Aarushi Bhatnagar"), "Aarushi is a junior at the University of 
+        Washington studying Informatics and Business. She is 
+        extremely passionate about artificial intelligence and in the future 
+        plan to use data science via artificial intelligence to help
+        differently abled people. "),
       p(h3("Nahom Abi"), "Nahom is a junior at the University of Washington
         pursuing a degree in Informatics. He plans to start a company after
         graduation."),
