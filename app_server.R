@@ -43,27 +43,27 @@ server <- function(input, output) {
 
   # outputs age plot
   output$age_vs_size <- renderPlotly({
-    pums_df <- create_size_age_df()
-    pums_df <- mutate_size_age_df(pums_df)
-    pums_df <- pums_df %>% select(Length, age, Sex, river)
-    pums_df <- drop_na(pums_df)
-    # df <- df %>% filter(Sex == "female", age == 2)
+    age_size_df <- create_size_age_df()
+    age_size_df <- mutate_size_age_df(age_size_df)
+    age_size_df <- age_size_df %>% select(Length, age, Sex, river)
+    age_size_df <- drop_na(age_size_df)
 
     if (input$selectSex == 1) {
-      pums_df <- pums_df %>% filter(Sex == "female")
+      age_size_df <- age_size_df %>% filter(Sex == "female")
     } else if (input$selectSex == 0) {
-      pums_df <- pums_df %>% filter(Sex == "male")
+      age_size_df <- age_size_df %>% filter(Sex == "male")
     }
 
     # Filter from check box
-    selectedRiver <- input$selectRiver
-    pums_df <- pums_df %>%
-      filter(river %in% selectedRiver)
+    selected_river <- input$selectRiver
+    age_size_df <- age_size_df %>%
+      filter(river %in% selected_river)
 
-     pums_dff <- pums_df %>% group_by(age) %>% 
-      summarise(aveSize = mean(Length))
+     age_size_dff <- age_size_df %>%
+       group_by(age) %>%
+       summarise(aveSize = mean(Length))
 
-     pums_dff %>%
+     age_size_dff %>%
        plot_ly(x = ~age,
                y = ~aveSize,
                type = "scatter",
