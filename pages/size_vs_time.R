@@ -26,7 +26,7 @@ size_vs_time_page <- tabPanel(
                    selected = "All")
       ),
     
-    # creates main panel with description and chart
+    # creates main panel with description and plot
     mainPanel(
       p("salmon have been changing in size (length in millimeters) over time;",
         "this is shown in the data collected by",
@@ -39,7 +39,7 @@ size_vs_time_page <- tabPanel(
         "a specific river in alaska to view;",
         "you can also specify that range of time you would like to view"),
       
-      plotlyOutput(outputId = "size_chart")
+      plotlyOutput(outputId = "size_plot")
     )
   )
 )

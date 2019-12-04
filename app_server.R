@@ -11,7 +11,7 @@ size_df <- create_full_df(create_edited_size_age_df())
 server <- function(input, output) {
   
   # outputs size plot
-  output$size_chart <- renderPlotly({
+  output$size_plot <- renderPlotly({
     df <- create_size_df(size_df, sex = input$sex, rivers = input$river) %>%
       plot_ly(x = ~sampleYear,
               y = ~Length,
