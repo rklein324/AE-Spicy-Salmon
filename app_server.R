@@ -51,42 +51,21 @@ server <- function(input, output) {
       pums_df <- pums_df %>% filter(Sex == "male")
     }
     
-
     # Filter from check box
     selectedRiver <- input$selectRiver
     pums_df <- pums_df %>% filter(river %in% selectedRiver)
     
-    # if (input$river[2] == FALSE) {
-    #   
-    # }
-    # else if (input$river[1] == FALSE) {
-    #   pums_df <- filter(pums_df, river != "Chilkat")
-    # }
-    # else if (input$river[3] == FALSE) {
-    #   pums_df <- filter(pums_df, river != "Taku")
-    # }
-    # else if (input$river[4] == FALSE) {
-    #   pums_df <- filter(pums_df, river != "Unuk")
-    # }
-    
-    
-    pums_dff <- pums_df %>% group_by(age) %>% 
+     pums_dff <- pums_df %>% group_by(age) %>% 
       summarise(aveSize = mean(Length))
     
-    # ggplot(pums_dff, aes(x=age, y=aveSize)) +
-    #  geom_line() +
-    #  geom_point()
-    
-  
-
      pums_dff %>%
        plot_ly(x = ~age,
                y = ~aveSize,
                type = 'scatter',
                mode = 'lines+markers') %>%
-       layout(yaxis = list(title = "Average size"))
-     
-     
+       layout(yaxis = list(title = "Average size (mm)"), 
+              xaxis = list(title = "Age (years)"))
+    
   })
     
     
