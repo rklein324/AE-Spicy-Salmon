@@ -1,28 +1,26 @@
 library(shiny)
 library(plotly)
-library(ggplot2)
 library(tidyr)
 
 source("analysis/size_analysis.R")
 source("analysis/harvest_analysis.R")
 source("analysis/size_age_analysis.R")
 
+size_df <- create_full_df(create_edited_size_age_df())
+
 server <- function(input, output) {
   
-  output$size_chart <- renderPlot({
-    df <- create_size_df(create_edited_size_age_df(), sep = input$sex, place = input$river)
-    if(input$sex == 2) {
-      ggplot(data = df, aes(x = sampleYear, y = Length, color = Sex)) +
-        geom_line() +
-        geom_point()
-    } else {
-      ggplot(data = df, aes(x = sampleYear, y = Length)) +
-        geom_line() +
-        geom_point()
-    }
+  # outputs size plot
+  output$size_plot <- renderPlotly({
+    df <- create_size_df(size_df, sex = input$sex, rivers = input$river) %>%
+      plot_ly(x = ~sampleYear,
+              y = ~Length,
+              color = ~river,
+              type = "scatter",
+              mode = "lines+markers")
   })
   
-  
+  # outputs harvest plot
   output$harvest_plot <- renderPlotly({
     df <- get_harvest_data(start_year = input$harvest_year[1],
                          end_year = input$harvest_year[2],
@@ -39,39 +37,60 @@ server <- function(input, output) {
       ))
   })
 
-  output$age_vs_size <- renderPlot({
-    df <- create_size_age_df()
-    df <- mutate_size_age_df(df)
-    df <- df %>% select(Length, age, Sex, river)
-    df <- drop_na(df)
+  # outputs age plot
+  output$age_vs_size <- renderPlotly({
+    pums_df <- create_size_age_df()
+    pums_df <- mutate_size_age_df(pums_df)
+    pums_df <- pums_df %>% select(Length, age, Sex, river)
+    pums_df <- drop_na(pums_df)
     # df <- df %>% filter(Sex == "female", age == 2)
     
     if(input$selectSex == 1) {
-      df <- df %>% filter(Sex == "female")
+      pums_df <- pums_df %>% filter(Sex == "female")
     } else if(input$selectSex == 0) {
-      df <- df %>% filter(Sex == "male")
+      pums_df <- pums_df %>% filter(Sex == "male")
     }
     
-    if (input$river == "Stikine") {
-      df <- df %>% filter(river == "Stikine")
-    } else if(input$river == "Chilkat") {
-      df <- df %>% filter(river == "Chilkat")
-    } else if(input$river == "Taku") { 
-      df <- df %>% filter(river == "Taku")
-    } else if(input$river == "Unuk") {
-      df <- df %>% filter(river == "Unuk")
-    } 
+
+    # Filter from check box
+    selectedRiver <- input$selectRiver
+    pums_df <- pums_df %>% filter(river %in% selectedRiver)
     
-    df2 <- df %>% group_by(age) %>% 
+    # if (input$river[2] == FALSE) {
+    #   
+    # }
+    # else if (input$river[1] == FALSE) {
+    #   pums_df <- filter(pums_df, river != "Chilkat")
+    # }
+    # else if (input$river[3] == FALSE) {
+    #   pums_df <- filter(pums_df, river != "Taku")
+    # }
+    # else if (input$river[4] == FALSE) {
+    #   pums_df <- filter(pums_df, river != "Unuk")
+    # }
+    
+    
+    pums_dff <- pums_df %>% group_by(age) %>% 
       summarise(aveSize = mean(Length))
     
-    ggplot(df2, aes(x=age, y=aveSize)) +
-      geom_line() +
-      geom_point()
+    # ggplot(pums_dff, aes(x=age, y=aveSize)) +
+    #  geom_line() +
+    #  geom_point()
     
-    
-  })
   
+
+     pums_dff %>%
+       plot_ly(x = ~age,
+               y = ~aveSize,
+               type = 'scatter',
+               mode = 'lines+markers') %>%
+       layout(yaxis = list(title = "Average size"))
+     
+     
+  })
+    
+    
+
   
   
 }

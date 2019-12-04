@@ -9,8 +9,8 @@ conclusion_page <- tabPanel(
     # creates sidebar panel
     sidebarPanel(
       h3("Data"),
-      tags$a(href="https://knb.ecoinformatics.org/view/doi:10.5063/F11R6NSS", "Size and Age Data"),
-      tags$a(href="https://www.adfg.alaska.gov/index.cfm?adfg=commercialbyfisherysalmon.salmon_combined_historical", "Harvest Data")
+      p(a("Size and Age Data", href="https://knb.ecoinformatics.org/view/doi:10.5063/F11R6NSS")),
+      p(a("Harvest Data", href="https://www.adfg.alaska.gov/index.cfm?adfg=commercialbyfisherysalmon.salmon_combined_historical"))
     ),
     
     # creates main panel

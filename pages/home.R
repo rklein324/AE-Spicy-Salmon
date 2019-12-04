@@ -8,8 +8,9 @@ home_page <- tabPanel(
   sidebarLayout(
     # creates sidebar panel
     sidebarPanel(
-      h4("Research Team"),
-      p("Aarushi, Rebecca, Nitidh, and Nahom")
+      p("Click ", a("here", href = 
+        "https://github.com/rklein324/AE-Spicy-Salmon/wiki/Technical-Report"),
+        " to read the techincal report")
     ),
     
     # creates main panel

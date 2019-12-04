@@ -1,3 +1,5 @@
+library(plotly)
+
 size_vs_time_page <- tabPanel(
   "Size Over Time",
   titlePanel("The Change in Salmon Size Over Time"),
@@ -5,25 +7,25 @@ size_vs_time_page <- tabPanel(
   sidebarLayout(
     # creates sidebar panel
     sidebarPanel(
-      # can select whether to separate by sex or not
+      # can choose to view the average for males, females, or total average
       radioButtons("sex",
-                   label = h3("Would you like to separate the data by sex?"),
-                   choices = list("No" = 1, "Yes" = 2),
-                   selected = 1),
+                   label = h3("Sex"),
+                   choices = list("Total" = "total",
+                                  "Male" = "male",
+                                  "Female" = "female"),
+                   selected = "total"),
       
-      # can select a river (or rivers) to look at data about
-      # none selected means you look at the whole data set
-      radioButtons("river",
+      # can select the average of a single river or total average
+      checkboxGroupInput("river",
                    label = h3("Select river"),
-                   choices = list("All" = "All",
-                                  "Chilkat" = "Chilkat",
+                   choices = list("Chilkat" = "Chilkat",
                                   "Stikine" = "Stikine",
                                   "Taku" = "Taku",
                                   "Unuk" = "Unuk"),
                    selected = "All")
       ),
     
-    # creates main panel with description and chart
+    # creates main panel with description and plot
     mainPanel(
       p("salmon have been changing in size (length in millimeters) over time;",
         "this is shown in the data collected by",
@@ -36,7 +38,7 @@ size_vs_time_page <- tabPanel(
         "a specific river in alaska to view;",
         "you can also specify that range of time you would like to view"),
       
-      plotOutput(outputId = "size_chart")
+      plotlyOutput(outputId = "size_plot")
     )
   )
 )
