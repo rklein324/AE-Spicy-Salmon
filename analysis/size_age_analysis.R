@@ -30,8 +30,6 @@ create_edited_size_age_df <- function() {
     select(date, sampleYear, river, Sex, Length, age)
 }
 
-my_df <- create_size_age_df()
-
 # -----------------------------------------------
 # SOLEY INFORMATIVE INFORMATION FOR OUR OWN ANALYSIS
 # -----------------------------------------------
@@ -39,7 +37,7 @@ my_df <- create_size_age_df()
 # returns a data frame of how many values for each (important) column
 # are missing per year
 summarize_missing_data <- function(df) {
-  df <- mutate_size_df(df)
+  df <- mutate_size_age_df(df)
   date <- df[is.na(df$sampleDate),] %>% 
     group_by(sampleYear) %>% 
     summarize(num_missing_date = n())
@@ -61,6 +59,6 @@ summarize_missing_data <- function(df) {
 
 # returns a data frame with how many samples were taken for each year
 number_obs_per_year <- function(df) {
-  group_by(df, sampleYear) %>% 
+  group_by(df, sampleYear, Location) %>% 
     summarize(num = n())
 }

@@ -2,7 +2,7 @@ about_page <- tabPanel(
   "About",
   titlePanel("About Us"),
   
-  flowLayout(
+  verticalLayout(
       p(h3("Aarushi Bhatnagar")),
       p(h3("Nahom Abi"), "Nahom is a junior at the University of Washington
         pursuing a degree in Informatics. He plans to start a company after
@@ -14,6 +14,6 @@ about_page <- tabPanel(
       p(h3("Rebecca Klein"), "Rebecca is a junior at the University of
         Washington and an Informatics major. She transfered to UW this year
         from North Seattle College. Rebecca aspires to be a data scientist
-        in a research organization")
+        in a research organization.")
   )
 )

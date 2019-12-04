@@ -6,18 +6,21 @@ source("analysis/size_analysis.R")
 source("analysis/harvest_analysis.R")
 source("analysis/size_age_analysis.R")
 
+# creates data frame for size plot
 size_df <- create_full_df(create_edited_size_age_df())
 
 server <- function(input, output) {
   
   # outputs size plot
   output$size_plot <- renderPlotly({
-    df <- create_size_df(size_df, sex = input$sex, rivers = input$river) %>%
+    df <- create_size_df(ungroup(size_df), sex = input$sex, rivers = input$river) %>%
       plot_ly(x = ~sampleYear,
               y = ~Length,
               color = ~river,
               type = "scatter",
-              mode = "lines+markers")
+              mode = "lines+markers") %>%
+      layout(yaxis = list(title = "Length (millimeters)"),
+             xaxis = list(title = "Year"))
   })
   
   # outputs harvest plot
